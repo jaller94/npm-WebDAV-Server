@@ -1,5 +1,5 @@
 import { IResource, SimpleCallback, ReturnCallback, Return2Callback, ResourceType } from '../IResource'
-import { Readable, ReadableOptions } from 'stream'
+import { Readable, ReadableOptions } from 'node:stream'
 import { FSManager, FSPath } from '../../../manager/v1/FSManager'
 import { VirtualResource } from '../virtual/VirtualResource'
 

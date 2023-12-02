@@ -5,7 +5,7 @@ import { PhysicalFolder } from '../../resource/v1/physical/PhysicalFolder'
 import { PhysicalFile } from '../../resource/v1/physical/PhysicalFile'
 import { FSManager } from './FSManager'
 import { Errors } from '../../Errors'
-import * as path from 'path'
+import * as path from 'node:path'
 
 export class PhysicalFSManager implements FSManager
 {

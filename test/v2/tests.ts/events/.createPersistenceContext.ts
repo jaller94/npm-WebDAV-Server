@@ -1,7 +1,7 @@
 import { TestCallback, TestInfo } from '../Type'
 import { v2 } from '../../../../lib/index.js'
-import * as path from 'path'
-import * as fs from 'fs'
+import * as path from 'node:path'
+import * as fs from 'node:fs'
 
 export function starter(info : TestInfo, isValid : TestCallback, eventName : v2.ServerEvent, callback : (server : v2.WebDAVServer, fs : v2.FileSystem) => void) : void
 {

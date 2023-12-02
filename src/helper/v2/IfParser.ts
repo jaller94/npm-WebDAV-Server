@@ -2,7 +2,7 @@ import { RequestContext } from '../../server/v2/RequestContext'
 import { ReturnCallback } from '../../index.v2';
 import { Resource } from '../../manager/v2/fileSystem/Resource'
 import { Path } from '../../manager/v2/Path'
-import * as url from 'url'
+import * as url from 'node:url'
 
 type FnReturn = ReturnCallback<boolean>
 

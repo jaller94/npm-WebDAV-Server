@@ -1,11 +1,11 @@
 import { IResource, SimpleCallback, ReturnCallback, Return2Callback, ResourceType } from '../IResource'
-import { Readable, Writable } from 'stream'
+import { Readable, Writable } from 'node:stream'
 import { PhysicalFSManager } from '../../../manager/v1/PhysicalFSManager'
 import { StandardResource } from '../std/StandardResource'
 import { FSManager } from '../../../manager/v1/FSManager'
 import { Errors } from '../../../Errors'
-import * as path from 'path'
-import * as fs from 'fs'
+import * as path from 'node:path'
+import * as fs from 'node:fs'
 
 export abstract class PhysicalResource extends StandardResource
 {

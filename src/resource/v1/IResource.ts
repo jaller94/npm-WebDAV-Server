@@ -1,4 +1,4 @@
-import { Readable, Writable } from 'stream'
+import { Readable, Writable } from 'node:stream'
 import { FSManager, FSPath } from '../../manager/v1/FSManager'
 import { StandardResource } from './std/StandardResource'
 import { RequestContext } from '../../server/v1/MethodCallArgs'
@@ -8,7 +8,7 @@ import { LockKind } from './lock/LockKind'
 import { LockType } from './lock/LockType'
 import { Errors } from '../../Errors'
 import { Lock } from './lock/Lock'
-import * as crypto from 'crypto'
+import * as crypto from 'node:crypto'
 
 export type SimpleCallback = (error : Error) => void
 export type ReturnCallback<T> = (error : Error, data : T) => void

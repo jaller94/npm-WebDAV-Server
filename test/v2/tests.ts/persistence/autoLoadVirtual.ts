@@ -1,7 +1,7 @@
 import { Test, TestCallback } from '../Type'
 import { v2 } from '../../../../lib/index.js'
 import { starter } from './.createPersistenceContext'
-import * as fs from 'fs'
+import * as fs from 'node:fs'
 
 function prob(server : v2.WebDAVServer, isValid : TestCallback, path : string | v2.Path, expectedType : v2.ResourceType, callback : () => void) : void
 {

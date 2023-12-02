@@ -2,14 +2,14 @@ import { HTTPBasicAuthentication } from '../../user/v1/authentication/HTTPBasicA
 import { HTTPDigestAuthentication } from '../../user/v1/authentication/HTTPDigestAuthentication'
 import { FakePrivilegeManager } from '../../user/v1/privilege/FakePrivilegeManager'
 import { HTTPAuthentication } from '../../user/v1/authentication/HTTPAuthentication'
-import { Writable, Readable } from 'stream'
+import { Writable, Readable } from 'node:stream'
 import { IPrivilegeManager } from '../../user/v1/privilege/IPrivilegeManager'
 import { SimpleUserManager } from '../../user/v1/simple/SimpleUserManager'
 import { RootResource } from '../../resource/v1/std/RootResource'
 import { IUserManager } from '../../user/v1/IUserManager'
 import { IResource } from '../../resource/v1/IResource'
 import { FSManager } from '../../manager/v1/FSManager'
-import * as https from 'https'
+import * as https from 'node:https'
 
 export interface IAutoSave
 {

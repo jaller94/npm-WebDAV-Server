@@ -1,7 +1,7 @@
 import { HTTPCodes, HTTPMethod, HTTPRequestContext } from '../WebDAVRequest'
 import { XML, XMLElementBuilder, XMLElement } from 'xml-js-builder'
 import { ResourceType } from '../../../manager/v2/fileSystem/CommonTypes'
-import { STATUS_CODES } from 'http'
+import { STATUS_CODES } from 'node:http'
 import { Workflow } from '../../../helper/Workflow'
 import { Errors } from '../../../Errors'
 

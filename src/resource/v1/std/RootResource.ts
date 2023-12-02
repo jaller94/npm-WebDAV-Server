@@ -1,5 +1,5 @@
 import { IResource, SimpleCallback, ReturnCallback, Return2Callback, ResourceType } from '../IResource'
-import { Readable, Writable } from 'stream'
+import { Readable, Writable } from 'node:stream'
 import { StandardResource } from './StandardResource'
 import { ResourceChildren } from './ResourceChildren'
 import { RootFSManager } from '../../../manager/v1/RootFSManager'

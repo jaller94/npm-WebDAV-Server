@@ -1,5 +1,5 @@
 import { Errors } from '../Errors'
-import * as url from 'url'
+import * as url from 'node:url'
 
 export class Workflow
 {

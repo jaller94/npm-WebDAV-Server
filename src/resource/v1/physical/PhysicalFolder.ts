@@ -1,5 +1,5 @@
 import { IResource, SimpleCallback, ReturnCallback, ResourceType } from '../IResource'
-import { Readable, Writable } from 'stream'
+import { Readable, Writable } from 'node:stream'
 import { ResourceChildren } from '../std/ResourceChildren'
 import { StandardResource } from '../std/StandardResource'
 import { PhysicalResource } from './PhysicalResource'
@@ -7,8 +7,8 @@ import { PhysicalFile } from './PhysicalFile'
 import { FSManager } from '../../../manager/v1/FSManager'
 import { Workflow } from '../../../helper/Workflow'
 import { Errors } from '../../../Errors'
-import * as path from 'path'
-import * as fs from 'fs'
+import * as path from 'node:path'
+import * as fs from 'node:fs'
 
 function loader(fpath : string, callback : (error : Error, resources ?: IResource[]) => void)
 {

@@ -1,4 +1,4 @@
-import { Readable, Writable, Transform } from 'stream'
+import { Readable, Writable, Transform } from 'node:stream'
 import { FTPGateway } from './FTPGateway'
 import * as ftpFSManager from './FSManager'
 import * as webdav from 'webdav-server'

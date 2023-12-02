@@ -11,7 +11,7 @@ import { Errors, HTTPError } from '../../../Errors'
 import { RootResource } from '../../../resource/v1/std/RootResource'
 import { IUserManager } from '../../../user/v1/IUserManager'
 import Commands from '../commands/Commands'
-import * as http from 'http'
+import * as http from 'node:http'
 
 export type WebDAVServerStartCallback = (server ?: http.Server) => void;
 

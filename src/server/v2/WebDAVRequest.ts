@@ -1,6 +1,6 @@
 import { ResourceType } from '../../manager/v2/fileSystem/CommonTypes'
 import { HTTPRequestContext } from './RequestContext'
-import { Readable } from 'stream'
+import { Readable } from 'node:stream'
 
 export { HTTPRequestContext } from './RequestContext'
 export { HTTPCodes } from '../HTTPCodes'

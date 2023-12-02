@@ -2,9 +2,9 @@ import { RootFSManager, VirtualFSManager, PhysicalFSManager } from '../../../man
 import { SerializedObject, unserialize, serialize } from '../../../manager/v1/ISerializer'
 import { SimpleCallback } from '../../../resource/v1/IResource'
 import { FSManager } from '../../../manager/v1/FSManager'
-import { Readable } from 'stream'
-import * as zlib from 'zlib'
-import * as fs from 'fs'
+import { Readable } from 'node:stream'
+import * as zlib from 'node:zlib'
+import * as fs from 'node:fs'
 
 function defaultFSManagers()
 {

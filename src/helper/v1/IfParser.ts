@@ -1,7 +1,7 @@
 import { IResource, ReturnCallback, ETag } from '../../resource/v1/IResource'
 import { MethodCallArgs } from '../../server/v1/MethodCallArgs'
 import { Errors } from '../../Errors'
-import * as url from 'url'
+import * as url from 'node:url'
 
 type FnReturn = ReturnCallback<boolean>
 

@@ -1,7 +1,7 @@
 import { Test } from '../Type'
 import { v2 } from '../../../../lib/index.js'
 import { starter } from './.createFileTxt'
-import { Readable } from 'stream'
+import { Readable } from 'node:stream'
 
 export default ((info, isValid) =>
 {

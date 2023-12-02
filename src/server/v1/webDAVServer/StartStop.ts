@@ -1,13 +1,13 @@
 import { HTTPCodes, MethodCallArgs, WebDAVRequest } from '../WebDAVRequest'
 import { WebDAVServerStartCallback } from './Types'
-import { Writable, Readable } from 'stream'
+import { Writable, Readable } from 'node:stream'
 import { Errors, HTTPError } from '../../../Errors'
 import { WebDAVServer } from './WebDAVServer'
 import { IAutoSave } from '../WebDAVServerOptions'
-import * as https from 'https'
-import * as http from 'http'
-import * as zlib from 'zlib'
-import * as fs from 'fs'
+import * as https from 'node:https'
+import * as http from 'node:http'
+import * as zlib from 'node:zlib'
+import * as fs from 'node:fs'
 
 function autoSave(options : IAutoSave)
 {
@@ -52,7 +52,7 @@ function autoSave(options : IAutoSave)
                                     outputStream = stream;
                                 outputStream.pipe(fs.createWriteStream(options.tempTreeFilePath));
 
-                                stream.end(JSON.stringify(data), (e) => {
+                                stream.on('error', (e) => {
                                     if(e)
                                     {
                                         options.onSaveError(e);
@@ -60,6 +60,8 @@ function autoSave(options : IAutoSave)
                                         return;
                                     }
                                 });
+
+                                stream.end(JSON.stringify(data));
 
                                 stream.on('close', () => {
                                     fs.unlink(options.treeFilePath, (e) => {

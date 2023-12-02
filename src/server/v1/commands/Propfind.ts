@@ -6,7 +6,7 @@ import { Workflow } from '../../../helper/Workflow'
 import { FSPath } from '../../../manager/v1/FSPath'
 import { Errors } from '../../../Errors'
 import { Lock } from '../../../resource/v1/lock/Lock'
-import * as http from 'http'
+import * as http from 'node:http'
 
 function lockDiscovery(lockDiscoveryCache : any, arg : MethodCallArgs, path : FSPath, resource : IResource, callback : ReturnCallback<any>)
 {

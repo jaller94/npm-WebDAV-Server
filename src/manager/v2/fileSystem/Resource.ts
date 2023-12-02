@@ -6,7 +6,7 @@ import {
     SubTree,
     ResourceType
 } from './CommonTypes'
-import { Readable, Writable } from 'stream'
+import { Readable, Writable } from 'node:stream'
 import { IPropertyManager } from './PropertyManager'
 import { RequestContext } from '../../../server/v2/RequestContext'
 import { ILockManager, ILockManagerAsync } from './LockManager'

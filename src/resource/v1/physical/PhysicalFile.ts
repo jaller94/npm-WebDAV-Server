@@ -1,10 +1,10 @@
 import { IResource, SimpleCallback, ReturnCallback, ResourceType } from '../IResource'
-import { Readable, Writable } from 'stream'
+import { Readable, Writable } from 'node:stream'
 import { PhysicalResource } from './PhysicalResource'
 import { FSManager } from '../../../manager/v1/FSManager'
 import { Errors } from '../../../Errors'
 import * as mimeTypes from 'mime-types'
-import * as fs from 'fs'
+import * as fs from 'node:fs'
 
 export class PhysicalFile extends PhysicalResource
 {

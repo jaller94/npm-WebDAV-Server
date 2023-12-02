@@ -1,6 +1,6 @@
 import { HTTPCodes, HTTPRequestContext, HTTPMethod } from '../WebDAVRequest'
 import { ResourceType } from '../../../manager/v2/fileSystem/CommonTypes'
-import { Transform } from 'stream'
+import { Transform } from 'node:stream'
 
 class RangedStream extends Transform
 {
@@ -60,7 +60,7 @@ class MultipleRangedStream extends Transform
         });
     }
 
-    _transform(chunk : string | Buffer, encoding : string, callback : Function)
+    _transform(chunk : string | Buffer, encoding : BufferEncoding, callback : Function)
     {
         this.streams.forEach((streamRange) => {
             streamRange.stream.write(chunk, encoding);
@@ -69,11 +69,14 @@ class MultipleRangedStream extends Transform
         callback(null, Buffer.alloc(0));
     }
 
-    end(chunk ?: any, encoding?: any, cb?: Function): void
+    end(cb?: () => void): this;
+    end(chunk: any, cb?: () => void): this;
+    end(chunk: any, encoding?: BufferEncoding, cb?: () => void): this;
+    end(...args: any): this
     {
         if(this.onEnded)
             process.nextTick(() => this.onEnded());
-        super.end(chunk, encoding, cb);
+        return super.end(...args);
     }
 }
 

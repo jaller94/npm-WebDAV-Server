@@ -6,7 +6,7 @@ import { HTTPAuthentication } from '../../../user/v1/authentication/HTTPAuthenti
 import { IPrivilegeManager } from '../../../user/v1/privilege/IPrivilegeManager'
 import { FSManager, FSPath } from '../../../manager/v1/FSManager'
 import { IUserManager } from '../../../user/v1/IUserManager'
-import { Readable } from 'stream'
+import { Readable } from 'node:stream'
 import Commands from '../commands/Commands'
 
 import * as persistence from './Persistence'
@@ -14,8 +14,8 @@ import * as beforeAfter from './BeforeAfter'
 import * as startStop from './StartStop'
 import * as resource from './Resource'
 import * as events from './Events'
-import * as https from 'https'
-import * as http from 'http'
+import * as https from 'node:https'
+import * as http from 'node:http'
 
 export { WebDAVServerOptions } from '../WebDAVServerOptions'
 

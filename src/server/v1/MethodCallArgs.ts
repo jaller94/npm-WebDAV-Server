@@ -8,8 +8,8 @@ import { HTTPCodes } from '../HTTPCodes'
 import { FSPath } from '../../manager/v1/FSManager'
 import { Errors } from '../../Errors'
 import { IUser } from '../../user/v1/IUser'
-import * as http from 'http'
-import * as url from 'url'
+import * as http from 'node:http'
+import * as url from 'node:url'
 
 export class MethodCallArgs
 {

@@ -1,6 +1,6 @@
 import { ReturnCallback, SimpleCallback, Return2Callback, OpenWriteStreamMode, SubTree, ResourceType } from './CommonTypes'
 import { FileSystemSerializer, ISerializableFileSystem } from './Serialization'
-import { Readable, Writable } from 'stream'
+import { Readable, Writable } from 'node:stream'
 import { IPropertyManager } from './PropertyManager'
 import { RequestContext } from '../../../server/v2/RequestContext'
 import { ILockManager } from './LockManager'

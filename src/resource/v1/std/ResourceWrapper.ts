@@ -1,5 +1,5 @@
 import { IResource, ReturnCallback, SimpleCallback, Return2Callback, ResourceType, ResourcePropertyValue } from '../IResource'
-import { Readable, Writable } from 'stream'
+import { Readable, Writable } from 'node:stream'
 import { FSManager, FSPath } from '../../../manager/v1/FSManager'
 import { StandardResource } from './StandardResource'
 import { RequestContext, MethodCallArgs } from '../../../server/v1/MethodCallArgs'

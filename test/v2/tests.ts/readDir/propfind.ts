@@ -1,7 +1,6 @@
 import { Test, TestInfo, TestCallback } from '../Type'
 import { starter } from './.createDir'
 import { v2 } from '../../../../lib/index.js'
-import { encode } from 'punycode';
 
 function test(info : TestInfo, isValid : TestCallback, root : string, callback : () => void) : void
 {

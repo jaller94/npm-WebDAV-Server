@@ -1,7 +1,7 @@
 import { HTTPCodes, MethodCallArgs, WebDAVRequest } from '../WebDAVRequest'
 import { IResource, ResourceType } from '../../../resource/v1/IResource'
 import { Errors, HTTPError } from '../../../Errors'
-import * as path from 'path'
+import * as path from 'node:path'
 
 function createResource(arg : MethodCallArgs, callback, validCallback : (resource : IResource) => void)
 {
@@ -103,7 +103,7 @@ export default function unchunkedMethod(arg : MethodCallArgs, callback)
                                 return;
                             }
 
-                            stream.end(arg.data, (e) => {
+                            stream.on('error', (e) => {
                                 if(e)
                                     arg.setCode(HTTPCodes.InternalServerError)
                                 else
@@ -113,6 +113,8 @@ export default function unchunkedMethod(arg : MethodCallArgs, callback)
                                 }
                                 callback();
                             });
+
+                            stream.end(arg.data);
                         }))
                     })
                     return;
@@ -141,7 +143,7 @@ export default function unchunkedMethod(arg : MethodCallArgs, callback)
                                 return;
                             }
 
-                            stream.end(arg.data, (e) => {
+                            stream.on('error', (e) => {
                                 if(e)
                                     arg.setCode(HTTPCodes.InternalServerError)
                                 else
@@ -150,7 +152,9 @@ export default function unchunkedMethod(arg : MethodCallArgs, callback)
                                     arg.setCode(HTTPCodes.OK)
                                 }
                                 callback();
-                            });
+                            })
+
+                            stream.end(arg.data);
                         }), arg.contentLength)
                     }))
                 })

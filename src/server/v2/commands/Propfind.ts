@@ -5,7 +5,7 @@ import { Workflow } from '../../../helper/Workflow'
 import { Resource } from '../../../manager/v2/fileSystem/Resource'
 import { Errors } from '../../../Errors'
 import { Lock } from '../../../resource/v2/lock/Lock'
-import * as http from 'http'
+import * as http from 'node:http'
 
 function dateISO8601(ticks : number) : string
 {

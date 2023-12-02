@@ -33,7 +33,7 @@ import {
 import { ISerializableFileSystem, FileSystemSerializer } from './Serialization'
 import { BasicPrivilege, PrivilegeManager } from '../../../user/v2/privilege/PrivilegeManager'
 import { FileSystemEvent, WebDAVServer } from '../../../server/v2/webDAVServer/WebDAVServer'
-import { Readable, Writable, Transform } from 'stream'
+import { Readable, Writable, Transform } from 'node:stream'
 import { IPropertyManager, PropertyBag } from './PropertyManager'
 import { ContextualFileSystem } from './ContextualFileSystem'
 import { StandardMethods } from './StandardMethods'
@@ -47,7 +47,7 @@ import { Resource } from './Resource'
 import { Errors } from '../../../Errors'
 import { Lock } from '../../../resource/v2/lock/Lock'
 import { Path } from '../Path'
-import * as crypto from 'crypto'
+import * as crypto from 'node:crypto'
 import { ensureValue, promisifyCall } from '../../../helper/v2/promise'
 
 class BufferedIsLocked
@@ -675,13 +675,13 @@ export abstract class FileSystem implements ISerializableFileSystem
                                             return callback(e, wStream, created);
 
                                         const stream = new Transform({
-                                            transform(chunk, encoding, callback)
+                                            transform(chunk, _encoding, callback)
                                             {
                                                 nb += chunk.length;
                                                 if(nb > available)
                                                     callback(Errors.InsufficientStorage);
                                                 else
-                                                    callback(null, chunk, encoding);
+                                                    callback(null, chunk);
                                             }
                                         });
                                         stream.pipe(wStream);

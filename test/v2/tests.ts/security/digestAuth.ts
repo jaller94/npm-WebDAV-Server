@@ -1,6 +1,6 @@
 import { Test } from '../Type'
 import { v2 } from '../../../../lib/index.js'
-import * as crypto from 'crypto'
+import * as crypto from 'node:crypto'
 
 export default (async (info, isValid) =>
 {

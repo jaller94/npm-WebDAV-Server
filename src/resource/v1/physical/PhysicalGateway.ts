@@ -7,8 +7,8 @@ import { PhysicalFolder } from './PhysicalFolder'
 import { PhysicalFile } from './PhysicalFile'
 import { Workflow } from '../../../helper/Workflow'
 import { Errors } from '../../../Errors'
-import * as path from 'path'
-import * as fs from 'fs'
+import * as path from 'node:path'
+import * as fs from 'node:fs'
 
 export class PhysicalGateway extends PhysicalFolder
 {

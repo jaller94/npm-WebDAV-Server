@@ -21,11 +21,11 @@ import {
     MoveInfo,
     TypeInfo,
 } from '../fileSystem/export'
-import { Readable, Writable } from 'stream'
-import { join as pathJoin } from 'path'
+import { Readable, Writable } from 'node:stream'
+import { join as pathJoin } from 'node:path'
 import { Errors } from '../../../Errors'
 import { Path } from '../Path'
-import * as fs from 'fs'
+import * as fs from 'node:fs'
 
 export class PhysicalFileSystemResource
 {

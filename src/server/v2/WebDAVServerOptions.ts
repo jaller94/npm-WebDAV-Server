@@ -2,13 +2,13 @@ import { IStorageManager, NoStorageManager } from '../../manager/v2/fileSystem/S
 import { HTTPDigestAuthentication } from '../../user/v2/authentication/HTTPDigestAuthentication'
 import { FileSystemSerializer } from '../../manager/v2/fileSystem/Serialization'
 import { HTTPAuthentication } from '../../user/v2/authentication/HTTPAuthentication'
-import { Writable, Readable } from 'stream'
+import { Writable, Readable } from 'node:stream'
 import { VirtualFileSystem } from '../../manager/v2/instances/VirtualFileSystem'
 import { SimpleUserManager } from '../../user/v2/simple/SimpleUserManager'
 import { PrivilegeManager } from '../../user/v2/privilege/PrivilegeManager'
 import { getPackageData } from '../../helper/v2/npmPackage'
 import { FileSystem } from '../../manager/v2/fileSystem/FileSystem'
-import * as https from 'https'
+import * as https from 'node:https'
 
 export interface IAutoSave
 {

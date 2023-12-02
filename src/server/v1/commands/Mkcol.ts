@@ -2,7 +2,7 @@ import { HTTPCodes, MethodCallArgs, WebDAVRequest } from '../WebDAVRequest'
 import { IResource, ResourceType } from '../../../resource/v1/IResource'
 import { FSPath } from '../../../manager/v1/FSManager'
 import { Errors } from '../../../Errors'
-import * as path from 'path'
+import * as path from 'node:path'
 
 export function method(arg : MethodCallArgs, callback)
 {

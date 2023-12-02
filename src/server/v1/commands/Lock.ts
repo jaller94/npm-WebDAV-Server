@@ -7,7 +7,7 @@ import { LockType } from '../../../resource/v1/lock/LockType'
 import { Errors } from '../../../Errors'
 import { Lock } from '../../../resource/v1/lock/Lock'
 import { XML, XMLElementBuilder } from 'xml-js-builder'
-import * as path from 'path'
+import * as path from 'node:path'
 
 function createResponse(arg : MethodCallArgs, lock : Lock)
 {

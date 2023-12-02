@@ -1,6 +1,6 @@
 import { v2 } from 'webdav-server'
 import * as request from 'request'
-import { Readable } from 'stream'
+import { Readable } from 'node:stream'
 
 // Serializer
 class WebFileSystemSerializer implements v2.FileSystemSerializer

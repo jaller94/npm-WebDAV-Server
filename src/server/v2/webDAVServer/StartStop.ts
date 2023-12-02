@@ -1,8 +1,8 @@
 import { HTTPCodes, HTTPRequestContext, HTTPMethod } from '../WebDAVRequest'
 import { WebDAVServerStartCallback } from './WebDAVServer'
 import { Errors } from '../../../Errors'
-import * as https from 'https'
-import * as http from 'http'
+import * as https from 'node:https'
+import * as http from 'node:http'
 
 export function executeRequest(req : http.IncomingMessage, res : http.ServerResponse, rootPath ?: string) : void
 {

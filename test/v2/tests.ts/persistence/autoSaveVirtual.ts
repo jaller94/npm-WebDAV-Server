@@ -1,7 +1,7 @@
 import { Test } from '../Type'
 import { v2 } from '../../../../lib/index.js'
 import { starter } from './.createPersistenceContext'
-import * as fs from 'fs'
+import * as fs from 'node:fs'
 
 export default ((info, isValid) =>
 {

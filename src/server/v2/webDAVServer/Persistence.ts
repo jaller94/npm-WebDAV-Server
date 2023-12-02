@@ -4,9 +4,9 @@ import { VirtualSerializerVersions } from '../../../manager/v2/instances/Virtual
 import { IAutoSave, IAutoLoad } from '../WebDAVServerOptions'
 import { HTTPRequestContext } from '../RequestContext'
 import { SimpleCallback } from '../../../manager/v2/fileSystem/CommonTypes'
-import { Readable } from 'stream'
-import * as zlib from 'zlib'
-import * as fs from 'fs'
+import { Readable } from 'node:stream'
+import * as zlib from 'node:zlib'
+import * as fs from 'node:fs'
 
 function defaultSerializers()
 {
@@ -117,15 +117,17 @@ export class AutoSavePool
                         outputStream = inputStream;
                     const fileStream = fs.createWriteStream(this.options.tempTreeFilePath);
                     outputStream.pipe(fileStream);
-    
-                    inputStream.end(JSON.stringify(data), (e) => {
-                        if(e)
+
+                    inputStream.on('error', (e) => {
+                        if (e)
                         {
                             this.options.onSaveError(e);
                             this.saveIfNext();
                             return;
                         }
                     });
+    
+                    inputStream.end(JSON.stringify(data));
     
                     fileStream.on('close', () => {
                         fs.unlink(this.options.treeFilePath, (e) => {

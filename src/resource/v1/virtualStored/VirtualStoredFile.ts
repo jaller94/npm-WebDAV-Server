@@ -1,5 +1,5 @@
 import { IResource, SimpleCallback, ReturnCallback, ResourceType } from '../IResource'
-import { Readable, Writable, Transform } from 'stream'
+import { Readable, Writable, Transform } from 'node:stream'
 import { VirtualStoredResource } from './VirtualStoredResource'
 import { FSManager } from '../../../manager/v1/FSManager'
 import { VirtualStoredFSManager } from '../../../manager/v1/VirtualStoredFSManager'

@@ -1,12 +1,12 @@
 import { IResource, ResourceType, ReturnCallback, SimpleCallback } from '../../resource/v1/IResource'
 import { VirtualStoredFolder } from '../../resource/v1/virtualStored/VirtualStoredFolder'
-import { Readable, Writable } from 'stream'
+import { Readable, Writable } from 'node:stream'
 import { VirtualStoredFile } from '../../resource/v1/virtualStored/VirtualStoredFile'
 import { SerializedObject } from './ISerializer'
 import { FSManager } from './FSManager'
 import { Errors } from '../../Errors'
-import * as path from 'path'
-import * as fs from 'fs'
+import * as path from 'node:path'
+import * as fs from 'node:fs'
 
 export interface IVirtualStoredContentManager
 {

@@ -20,7 +20,7 @@ import {
     SizeInfo,
     TypeInfo,
 } from '../fileSystem/export'
-import { Readable, Writable } from 'stream'
+import { Readable, Writable } from 'node:stream'
 import { RequestContext } from '../../../server/v2/RequestContext'
 import { Errors } from '../../../Errors'
 import { Path } from '../Path'
