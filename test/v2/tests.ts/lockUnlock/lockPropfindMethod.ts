@@ -10,7 +10,7 @@ export default ((info, isValid) =>
         try
         {
             const status = xml.find('DAV:multistatus').find('DAV:response').find('DAV:propstat').find('DAV:status').findText();
-            if(status.indexOf(expectedCode.toString()) === -1)
+            if(!status.includes(expectedCode.toString()))
                 return isValid(false, 'The XML repsonse returned a "' + status + '" instead of a status code ' + expectedCode);
 
             callback();

@@ -22,7 +22,7 @@ export default class implements HTTPMethod
                     {
                         const xml = XML.parse(data as any);
                         const root = xml.find('DAV:propertyupdate');
-                        const notifications : any = { }
+                        const notifications : Record<string, string[]> = { }
                         const reverse = [];
 
                         let finalize = function()

@@ -6,7 +6,7 @@ import { IUser } from '../IUser'
 
 export class SimpleUserManager implements ITestableUserManager, IListUserManager
 {
-    protected users : any
+    protected users : Record<string, SimpleUser>
 
     constructor()
     {

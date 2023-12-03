@@ -62,7 +62,7 @@ module.exports = (test, options, index) => test('request with a JSON body instea
                 {
                     for(let j = 0; j < values.length; ++j)
                     {
-                        if(name.indexOf(values[j]) !== -1)
+                        if(name.includes(values[j]))
                         {
                             ++found;
                             values.splice(j, 1);

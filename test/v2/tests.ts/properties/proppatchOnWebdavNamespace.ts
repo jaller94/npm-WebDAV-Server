@@ -14,7 +14,7 @@ export default ((info, isValid) =>
                 return isValid(false, 'The element in the "prop" element must be "getetag" but got : ' + value)
             
             value = propstat.find('DAV:status').findText();
-            if(value.indexOf(v2.HTTPCodes.Forbidden.toString()) === -1)
+            if(!value.includes(v2.HTTPCodes.Forbidden.toString()))
                 return isValid(false, 'The status must be ' + v2.HTTPCodes.Forbidden + ' but got : ' + value);
             
             isValid(true);
@@ -29,7 +29,7 @@ export default ((info, isValid) =>
                 return isValid(false, 'The element in the "prop" element must be "getetagxx" but got : ' + value)
             
             value = propstat.find('DAV:status').findText();
-            if(value.indexOf(v2.HTTPCodes.Forbidden.toString()) === -1)
+            if(!value.includes(v2.HTTPCodes.Forbidden.toString()))
                 return isValid(false, 'The status must be ' + v2.HTTPCodes.Forbidden + ' but got : ' + value);
             
             isValid(true);
@@ -44,7 +44,7 @@ export default ((info, isValid) =>
                 return isValid(false, 'The element in the "prop" element must be "getetagxx" but got : ' + value)
             
             value = propstat.find('DAV:status').findText();
-            if(value.indexOf(v2.HTTPCodes.Forbidden.toString()) === -1)
+            if(!value.includes(v2.HTTPCodes.Forbidden.toString()))
                 return isValid(false, 'The status must be ' + v2.HTTPCodes.Forbidden + ' but got : ' + value);
             
             isValid(true);

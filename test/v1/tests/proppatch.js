@@ -69,7 +69,7 @@ module.exports = (test, options, index) => test('PROPPATCH method', (isValid, se
                     const authorsKey = Object.keys(prop).find((k) => k.endsWith(':Authors'));
                 
                     if(!(prop[authorsKey].length === 1 &&
-                        response['D:propstat'][0]['D:status'][0]._text[0].indexOf('HTTP/1.1 20') === 0 &&
+                        response['D:propstat'][0]['D:status'][0]._text[0].startsWith('HTTP/1.1 20') &&
                         response['D:href'][0]._text[0] === url))
                     {
                         isValid(false, 'Error occured in the response.');

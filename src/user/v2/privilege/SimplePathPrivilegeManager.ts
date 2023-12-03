@@ -29,7 +29,7 @@ function standarizePath(path : string)
 
 export class SimplePathPrivilegeManager extends PrivilegeManager
 {
-    rights : any;
+    rights : Record<string, Record<string, BasicPrivilege[] | string[]>>;
 
     constructor()
     {
@@ -47,25 +47,25 @@ export class SimplePathPrivilegeManager extends PrivilegeManager
             this.rights[user.uid] = {};
         
         const rs = rights as string[];
-        if(rs.indexOf('canRead') !== -1)
+        if(rs.includes('canRead'))
         {
             rs.push('canReadLocks');
             rs.push('canReadContent');
             rs.push('canReadProperties');
         }
-        if(rs.indexOf('canReadContent') !== -1)
+        if(rs.includes('canReadContent'))
         {
             rs.push('canReadContentTranslated');
             rs.push('canReadContentSource');
         }
         
-        if(rs.indexOf('canWrite') !== -1)
+        if(rs.includes('canWrite'))
         {
             rs.push('canWriteLocks');
             rs.push('canWriteContent');
             rs.push('canWriteProperties');
         }
-        if(rs.indexOf('canWriteContent') !== -1)
+        if(rs.includes('canWriteContent'))
         {
             rs.push('canWriteContentTranslated');
             rs.push('canWriteContentSource');
