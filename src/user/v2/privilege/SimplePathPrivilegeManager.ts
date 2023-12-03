@@ -20,7 +20,7 @@ function standarizePath(path : string)
     while(rex.test(path))
         path = path.replace(rex, '/');
     path = path.replace(/\/$/g, '');
-    path = path.replace(/^([^\/])/g, '/$1');
+    path = path.replace(/^([^/])/g, '/$1');
     if(path.length === 0)
         path = '/';
     
