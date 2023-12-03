@@ -32,7 +32,7 @@ module.exports = (callback, options) => {
         if(e)
             throw e;
         
-        files = files.filter((f) => f.indexOf('.js') === -1);
+        files = files.filter((f) => !f.includes('.js'));
         nb += files.length;
         let gindex = 0;
         files.forEach((f1) => {
@@ -41,7 +41,7 @@ module.exports = (callback, options) => {
                 if(e)
                     throw e;
 
-                files = files.filter((f) => f.indexOf('.js') === f.length - 3 && f.indexOf('.') !== 0);
+                files = files.filter((f) => f.endsWith('.js') && !f.startsWith('.'));
                 nb += files.length;
                 files.forEach((f) => {
                     const fx = path.join(f1x, f);

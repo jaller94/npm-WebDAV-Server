@@ -5,7 +5,7 @@ import { IUser } from '../IUser'
 
 export class SimpleUserManager implements IUserManager
 {
-    protected users : any
+    protected users : Record<string, SimpleUser>
 
     constructor()
     {

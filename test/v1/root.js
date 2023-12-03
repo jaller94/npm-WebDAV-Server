@@ -28,7 +28,7 @@ module.exports = (callback, options) => {
     {
         try
         {
-            if(fn.constructor !== Function)
+            if(typeof fn !== 'function')
                 throw fn;
 
             let callback = (valid, details) => {

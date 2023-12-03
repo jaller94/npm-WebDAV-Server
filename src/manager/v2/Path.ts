@@ -3,7 +3,7 @@ export class Path
 {
     paths : string[]
 
-    static isPath(obj : any) : boolean
+    static isPath(obj : unknown) : boolean
     {
         return typeof obj === 'string' || obj && obj.constructor === Path;
     }

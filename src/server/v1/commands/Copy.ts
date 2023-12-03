@@ -116,7 +116,7 @@ export function method(arg : MethodCallArgs, callback)
             arg.checkIfHeader(source, () => {
                 const overwrite = arg.findHeader('overwrite') !== 'F';
 
-                let destination : any = arg.findHeader('destination');
+                let destination = arg.findHeader('destination');
                 if(!destination)
                 {
                     arg.setCode(HTTPCodes.BadRequest);
@@ -130,9 +130,9 @@ export function method(arg : MethodCallArgs, callback)
                     destination = destination.substring(startIndex + '://'.length)
                     destination = destination.substring(destination.indexOf('/')) // Remove the hostname + port
                 }
-                destination = new FSPath(destination)
+                const destinationPath = new FSPath(destination)
 
-                arg.server.getResourceFromPath(arg, destination.getParent(), (e, rDest) => {
+                arg.server.getResourceFromPath(arg, destinationPath.getParent(), (e, rDest) => {
                     if(e)
                     {
                         arg.setCode(HTTPCodes.InternalServerError);
@@ -152,7 +152,7 @@ export function method(arg : MethodCallArgs, callback)
                                 
                                 function done(overridded : boolean)
                                 {
-                                    copy(arg, source, rDest, destination, (e) => {
+                                    copy(arg, source, rDest, destinationPath, (e) => {
                                         if(e)
                                             arg.setCode(HTTPCodes.InternalServerError);
                                         else if(overridded)
@@ -237,7 +237,7 @@ export function method(arg : MethodCallArgs, callback)
                                     }
                                     children.forEach((child) => {
                                         child.webName((e, name) => process.nextTick(() => {
-                                            go(e, name === destination.fileName() ? child : null);
+                                            go(e, name === destinationPath.fileName() ? child : null);
                                         }))
                                     })
                                 }))

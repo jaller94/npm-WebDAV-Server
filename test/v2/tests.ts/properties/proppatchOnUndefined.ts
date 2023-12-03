@@ -20,7 +20,7 @@ export default ((info, isValid) =>
                 return isValid(false, 'The element in the "prop" element must be "test1" but got : ' + value)
             
             value = propstat.find('DAV:status').findText();
-            if(value.indexOf(v2.HTTPCodes.OK.toString()) === -1)
+            if(!value.includes(v2.HTTPCodes.OK.toString()))
                 return isValid(false, 'The status must be ' + v2.HTTPCodes.OK + ' but got : ' + value);
             
             isValid(true);

@@ -20,7 +20,7 @@ server.method('TRACE', {
             const ctxPath = ctx.requested.path;
             const sCtxPath = ctxPath.toString(true);
 
-            if((method === '*' || ctxMethod === method) && ((depth === -1 || ctxPath.paths.length <= depth + nbPaths) && sCtxPath.indexOf(path) === 0))
+            if((method === '*' || ctxMethod === method) && ((depth === -1 || ctxPath.paths.length <= depth + nbPaths) && sCtxPath.startsWith(path)))
             {
                 wctx.response.write(JSON.stringify({
                     request: {

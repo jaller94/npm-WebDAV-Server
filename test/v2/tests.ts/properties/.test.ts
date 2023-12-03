@@ -26,7 +26,7 @@ export function test(s : v2.WebDAVServer, info : TestInfo, isValid : TestCallbac
             props.find('test5');
             
             const value = propstat.find('DAV:status').findText();
-            if(value.indexOf(v2.HTTPCodes.OK.toString()) === -1)
+            if(!value.includes(v2.HTTPCodes.OK.toString()))
                 return isValid(false, 'The status must be ' + v2.HTTPCodes.OK + ' but got : ' + value);
             
             propfind(s, info, path, v2.HTTPCodes.MultiStatus, 0, undefined, (xml) => {
@@ -68,7 +68,7 @@ export function test(s : v2.WebDAVServer, info : TestInfo, isValid : TestCallbac
                             props.find('test4');
                     
                             const value = propstat.find('DAV:status').findText();
-                            if(value.indexOf(v2.HTTPCodes.OK.toString()) === -1)
+                            if(!value.includes(v2.HTTPCodes.OK.toString()))
                                 return isValid(false, 'The status must be ' + v2.HTTPCodes.OK + ' but got : ' + value);
 
                             propfind(s, info, path, v2.HTTPCodes.MultiStatus, 0, undefined, (xml) => {

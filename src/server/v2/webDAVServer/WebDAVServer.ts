@@ -403,7 +403,7 @@ export class WebDAVServer
      */
     getFileSystemSync(path : Path) : { fs : FileSystem, rootPath : Path, subPath : Path }
     {
-        let best : any = {
+        let best : { index: number, rootPath: Path } = {
             index: 0,
             rootPath : new Path('/')
         };

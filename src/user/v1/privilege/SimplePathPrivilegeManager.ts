@@ -45,7 +45,7 @@ function checkerNoLock(sppm : SimplePathPrivilegeManager, right : SimpleBasicPri
 
 export class SimplePathPrivilegeManager extends SimplePrivilegeManager
 {
-    rights : any;
+    rights : Record<string, Record<string, SimpleBasicPrivilege[]>>;
 
     constructor()
     {
@@ -71,7 +71,7 @@ export class SimplePathPrivilegeManager extends SimplePrivilegeManager
     can(user : IUser, path : string, right : SimpleBasicPrivilege) : boolean
     {
         const rights = this.getRights(user, path);
-        const r = rights && (rights.indexOf('all') !== -1 || rights.indexOf(right) !== -1);
+        const r = rights && (rights.includes('all') || rights.includes(right));
         return r;
     }
     
