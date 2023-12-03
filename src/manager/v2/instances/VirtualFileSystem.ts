@@ -123,7 +123,6 @@ export class VirtualSerializer implements FileSystemSerializer
 
     unserialize(serializedData : any, callback : ReturnCallback<FileSystem>) : void
     {
-        // tslint:disable-next-line:no-use-before-declare
         const fs = new VirtualFileSystem();
 
         if(serializedData.resources)
