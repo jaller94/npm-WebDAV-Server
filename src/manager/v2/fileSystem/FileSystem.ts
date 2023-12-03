@@ -615,18 +615,18 @@ export abstract class FileSystem implements ISerializableFileSystem
     {
         let targetSource = false;
         for(const obj of [ _mode, _targetSource ])
-            if(obj && obj.constructor === Boolean)
-                targetSource = obj as boolean;
+            if(typeof obj === 'boolean')
+                targetSource = obj;
 
         let estimatedSize = -1;
         for(const obj of [ _mode, _targetSource, _estimatedSize ])
-            if(obj && obj.constructor === Number)
-                estimatedSize = obj as number;
+            if(typeof obj === 'number')
+                estimatedSize = obj;
 
-        let callbackFinal;
+        let callbackFinal: Return2Callback<Writable, boolean>;
         for(const obj of [ _mode, _targetSource, _estimatedSize, _callback ])
-            if(obj && obj.constructor === Function)
-                callbackFinal = obj as Return2Callback<Writable, boolean>;
+            if(typeof obj === 'function')
+                callbackFinal = obj;
         
         const mode = _mode && _mode.constructor === String ? _mode as OpenWriteStreamMode : 'mustExist';
         const path = new Path(_path);
