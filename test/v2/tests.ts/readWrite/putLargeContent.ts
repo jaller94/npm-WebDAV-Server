@@ -20,10 +20,10 @@ export default ((info, isValid) =>
                 if(e) return isValid(false, 'Could not open the resource for reading.', e);
 
                 let data = '';
-                let tempData;
-                while(tempData = rStream.read(1000))
-                    data += tempData.toString();
-                isValid(data === content, 'The content read is not the same as the one written : "' + data.substring(0, 20) + '[...]" but expected "' + content.substring(0, 20) + '[...]".');
+                rStream.on('data', chunk => data += chunk.toString());
+                rStream.on('end', () => {
+                    isValid(data === content, 'The content read is not the same as the one written : "' + data.substring(0, 20) + '[...]" but expected "' + content.substring(0, 20) + '[...]".');
+                });
             })
         })
     });
