@@ -39,23 +39,23 @@
   },
   "description": "WebDAV Server",
   "dependencies": {
-    "mime-types": "^2.1.18",
+    "mime-types": "^3.0.1",
     "xml-js-builder": "^1.0.3"
   },
   "devDependencies": {
-    "@types/mime-types": "^2.1.0",
-    "@types/node": "^7.0.64",
-    "@types/request": "0.0.44",
-    "@typescript-eslint/eslint-plugin": "^6.13.1",
-    "@typescript-eslint/parser": "^6.13.1",
-    "eslint": "^8.55.0",
-    "express": "^4.16.4",
-    "form-data": "^3.0.0",
-    "request": "^2.85.0",
-    "safe-regex": "^1.1.0",
-    "typescript": "^3.7.2",
-    "webdav-fs": "^1.10.1",
-    "xml-js": "^1.4.1"
+    "@types/mime-types": "^3.0.1",
+    "@types/node": "^24.1.0",
+    "@types/request": "2.48.12",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "eslint": "^9.31.0",
+    "express": "^5.1.0",
+    "form-data": "^4.0.4",
+    "request": "^2.88.2",
+    "safe-regex": "^2.1.1",
+    "typescript": "^5.8.3",
+    "webdav-fs": "^4.0.1",
+    "xml-js": "^1.6.11"
   },
   "types": "./lib/index.d.ts"
 }
