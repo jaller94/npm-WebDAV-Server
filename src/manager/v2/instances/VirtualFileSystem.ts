@@ -102,6 +102,9 @@ export class VirtualFileWritable extends Writable
 
     _write(chunk : Buffer | string | any, encoding : string, callback : (error : Error) => void)
     {
+        if (!(chunk instanceof Buffer)) {
+            chunk = Buffer.from(chunk, encoding);
+        }
         this.contents.push(chunk);
         callback(null);
     }

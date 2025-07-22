@@ -10,8 +10,11 @@ export default ((info, isValid) =>
         r.openReadStream((e, rStream) => {
             if(e) return isValid(false, 'Could not open the resource for reading.', e);
 
-            const data = rStream.read(1000).toString();
-            isValid(data === content, 'The content read is not the same as the one written : "' + data + '" but expected "' + content + '".');
+            let data = '';
+            rStream.on('data', chunk => data += chunk.toString());
+            rStream.on('end', () => {
+                isValid(data === content, 'The content read is not the same as the one written : "' + data + '" but expected "' + content + '".');
+            });
         })
     })
 

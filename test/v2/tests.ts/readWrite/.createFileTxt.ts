@@ -21,10 +21,11 @@ export function starter(server : v2.WebDAVServer, info : TestInfo, isValid : Tes
             
             r.openWriteStream((e, wStream) => {
                 if(e) return isValid(false, 'Could not open the resource for writing.', e);
+                wStream.on('finish', () => {
+                    callback(r, server);
+                });
                 wStream.end(content, (e) => {
                     if(e) return isValid(false, 'Could not write content to the resource.', e);
-
-                    callback(r, server);
                 });
             })
         })
